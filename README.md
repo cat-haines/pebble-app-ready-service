@@ -9,6 +9,9 @@ for this event to fire before sending any AppMessages to the JavaScript.
 This package includes both C and JavaScript code. Information on how to install
 the package, and work with it in your JavaScript and C code are detailed below.
 
+The [Test Application](./test-app) demonstrates a minimal code sample with the
+package.
+
 ### Installation
 
 To install the package, run the following command from a Pebble project:

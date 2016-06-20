@@ -1,0 +1,32 @@
+{
+  "name": "pebble-app-ready-service-test",
+  "author": "Cat Haines",
+  "version": "1.0.0",
+  "keywords": [
+    "pebble-app"
+  ],
+  "private": true,
+  "dependencies": {
+    "pebble-app-ready-service": "^0.1.0"
+  },
+  "pebble": {
+    "displayName": "AppReadyService Test",
+    "uuid": "f8a2e6e9-2ea0-415b-b263-0244467db8a9",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk"
+    ],
+    "watchapp": {
+      "watchface": false
+    },
+    "messageKeys": [
+      "dummy"
+    ],
+    "resources": {
+      "media": []
+    }
+  }
+}
