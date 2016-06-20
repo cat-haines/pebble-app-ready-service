@@ -8,7 +8,7 @@
   "keywords": [
     "pebble-package"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "pebble-events": "^1.0.2"
   },

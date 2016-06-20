@@ -39,7 +39,7 @@ file in your application:
 ```
 
 After including the file, you can subscribe to the `ready` and `timeout` events
-by creating an `AppReadyHandler` object, and then invoking the
+by creating an `AppReadyHandlers` object, and then invoking the
 `app_ready_service_subscribe` method. This is typically done in your app's init
 code.
 
@@ -61,9 +61,43 @@ static void prv_init() {
   // ...
 
   // Subscribe to the ready service
-  app_ready_service_subscribe((){
+  app_ready_service_subscribe((AppReadyHandlers){
     .ready = prv_app_ready,
     .timeout = prv_app_timeout
   }, NULL);
 }
 ```
+
+## API Documentation
+
+#### AppReadyHandlers
+
+```
+// Define the struct to hold our handlers
+typedef struct AppReadyHandlers {
+  AppReadyCallback ready;
+  AppReadyCallback timeout;
+} AppReadyHandlers;
+```
+
+The AppReadyHandlers struct is used to define the `.ready` and `.timeout`
+callbacks for the AppReadyService. The callbacks must be `void` functions with
+a `void* context` parameter.
+
+#### void app_ready_service_subscribe(AppReadyHandlers handlers, void* context);
+
+The `app_ready_service_subscribe` registers the supplied callback methods. The
+second parameter is a pointer to the context data the callback methods will use.
+If not context is required, `NULL` should be passed as the second parameter.
+
+#### void app_ready_service_set_timeout(uint16_t timeout);
+
+The `app_ready_service_set_timeout` methods allows you to change the default
+timeout period (5000 ms). 
+
+**NOTE**: If changing the timeout period, this method *must* be called before
+`app_ready_service_subscribe`.
+
+## License
+
+This package is licensed under the [MIT License](./LICENSE).
